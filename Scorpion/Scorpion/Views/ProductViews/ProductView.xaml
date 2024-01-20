@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Scorpion.Views.ProductViews.ProductView">
+    <ContentPage.Content>
+        <Grid x:Name="grid1"  BindingContext="{Binding .}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Frame Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Style="{DynamicResource FrameStyle}" Padding="10">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Название:" />
+                    <Label x:Name="LabelName" Text="{Binding NameOfProduct}" />
+                </StackLayout>
+            </Frame>
+
+            <Frame Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Style="{DynamicResource FrameStyle}" Padding="10">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Количество:" />
+                    <Label x:Name="LabelQuantity" Text="{Binding Quantity}" />
+
+                </StackLayout>
+            </Frame >
+
+            <Frame Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Style="{DynamicResource FrameStyle}" Padding="10">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Дата изготовления:"/>
+                    <Label x:Name="LabelDateOfIssue" Text="{Binding DateOfIssue}"/>
+                </StackLayout>
+            </Frame>
+
+            <Frame Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Style="{DynamicResource FrameStyle}" Padding="10">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Дата окончания срока годности:"/>
+                    <Label x:Name="LabelExpirationDate" Text="{Binding ExpirationDate}"/>
+                </StackLayout>
+            </Frame>
+
+            <Frame Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Style="{DynamicResource FrameStyle}" Padding="10">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Уведомить об конце ср/г за:"/>
+                    <Label x:Name="LabelNotificationDay" Text="{Binding NotificationDay}"/>
+                </StackLayout>
+            </Frame>
+
+            <Frame Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Style="{DynamicResource FrameStyle}" Padding="10">
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Комментарий:"/>
+                    <Label x:Name="LabelComment" Text="{Binding Comment}"/>
+                </StackLayout>
+            </Frame>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Scorpion.Views.ArticleViews.AddArticle">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Сохранить" Clicked="Save_Clicked" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Button x:Name="ButtonAdd" Text="Добавить изображение" Grid.Row="0" Grid.Column="0" FontSize="Micro"
+                        Clicked="Button_OnClicked" />
+                <Button x:Name="ButtonDelete" Text="Удалить изображение" Grid.Row="0" Grid.Column="1" FontSize="Micro"
+                        Clicked="ButtonDelete_OnClicked" />
+
+                <Entry x:Name="nameEntry" Grid.Row="1" Grid.ColumnSpan="2" Placeholder="Название" />
+                <Entry x:Name="ShortDescEntry" Grid.Row="2" Grid.ColumnSpan="2" Placeholder="Краткое описание" />
+                <Editor x:Name="FullDescriptionEntry" AutoSize="TextChanges" Grid.Row="3" Grid.ColumnSpan="2"
+                        Placeholder="Описание" />
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

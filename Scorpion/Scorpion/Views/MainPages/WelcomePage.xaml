@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Scorpion.Views.MainPages.WelcomePage" 
+             Title="Главная страница" >
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Order="Secondary" Text="Настройки" Clicked="Options_OnClicked" />
+        <ToolbarItem Order="Secondary" Text="Продукты" Clicked="Products_Clicked" />
+        <ToolbarItem Order="Secondary" Text="Об авторе" Clicked="About_OnClicked" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry x:Name="EntryFinder"  Placeholder="Введите ключевые слова..." TextChanged="Entry_TextChanged"/>
+            <ListView x:Name="ItemList" ItemSelected="ItemList_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="1" />
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="1" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="5" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="5" />
+                                </Grid.ColumnDefinitions>
+
+                                <Label Grid.Row="1" Grid.Column="1" Text="{Binding Name}" Font="Bold" FontSize="Large" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

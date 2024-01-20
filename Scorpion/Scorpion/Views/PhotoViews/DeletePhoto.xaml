@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Scorpion.Views.PhotoViews.DeletePhoto">
+
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <ListView x:Name="ListViewImages" HasUnevenRows="True" Grid.Row="0" ItemTapped="DoubleTap_OnTapped">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Image Aspect="AspectFill" HorizontalOptions="CenterAndExpand"
+                                   VerticalOptions="CenterAndExpand" Source="{Binding PhotoBlobS}" />
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="OneTap" NumberOfTapsRequired="1" Tapped="OneTap_OnTapped" />
+                    <TapGestureRecognizer x:Name="DoubleTap" NumberOfTapsRequired="2" Tapped="DoubleTap_OnTapped" />
+                </ListView.GestureRecognizers>
+            </ListView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

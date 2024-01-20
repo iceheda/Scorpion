@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Scorpion.Views.SectionViews.MenuPage"
+             Title="Menu"
+             Appearing="MenuPage_OnAppearing" Style="{StaticResource SectionListBackgroundStyle}">
+
+    <Grid VerticalOptions="FillAndExpand">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="34" />
+        </Grid.ColumnDefinitions>
+
+        <Image Source="@drawable/nextLogo.png" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Aspect="AspectFit" />
+        <Button ImageSource="@drawable/home.png" Margin="0,0,10,0" WidthRequest="1" HeightRequest="1"
+                Clicked="ButHome_OnClicked" Grid.Row="1" Grid.Column="1" />
+
+        <Label Font="Bold" FontSize="Large" Style="{StaticResource LabelStyle}" Text="Разделы" Margin="8,0,0,0"
+               HorizontalOptions="Start" VerticalOptions="Center" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" />
+        <ListView x:Name="ListViewMenu" HasUnevenRows="True" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_Tapped" />
+                                <TapGestureRecognizer NumberOfTapsRequired="2" Tapped="TapGestureRecognizer_OnTapped" />
+                            </Grid.GestureRecognizers>
+
+                            <Label Text="{Binding Name}" Grid.Row="0" Style="{StaticResource LabelMainStyle}" />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Grid Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="42" />
+            </Grid.RowDefinitions>
+            <Button x:Name="ButtonDelete" Style="{StaticResource ButtonStyle}" Grid.Column="0" Grid.Row="0"
+                    IsVisible="false" Text="Удалить" FontSize="Micro" Clicked="ButtonDelete_OnClicked" Margin="3,0,0,0" />
+            <Button x:Name="ButtonEdit" Style="{StaticResource ButtonStyle}" Grid.Column="1" Grid.Row="0"
+                    IsVisible="false" Text="Изменить" FontSize="Micro" Clicked="ButtonEdit_OnClicked" />
+            <Button x:Name="ButtonAdd" Style="{StaticResource ButtonStyle}" Grid.Column="2" Grid.Row="0"
+                    IsVisible="false" Text="Добавить" FontSize="Micro" Clicked="ButtonAdd_OnClicked" Margin="0,0,3,0" />
+        </Grid>
+    </Grid>
+</ContentPage>

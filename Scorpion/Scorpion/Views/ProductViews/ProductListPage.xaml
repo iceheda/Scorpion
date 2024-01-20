@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Scorpion.Views.ProductViews.ProductListPage"
+             Title="Продукты" Appearing="ContentPage_Appearing">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="Add" Text="Добавить" Order="Secondary" Clicked="Add_Clicked"/>
+        <ToolbarItem x:Name="Edit" Text="Изменить" Order="Secondary" Clicked="Edit_Clicked"/>
+        <ToolbarItem x:Name="Delete" Text="Удалить" Order="Secondary" Clicked="Delete_Clicked"/>
+    </ContentPage.ToolbarItems>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Frame Grid.Row="0" Style="{StaticResource FrameStyle}" Padding="5">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition  Width="Auto"/>
+                            <ColumnDefinition  Width="*"/>
+                            <ColumnDefinition  Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Entry x:Name="FinderEntry" Placeholder="Поиск по названию" FontSize="Body" Grid.Column="0" TextChanged="Entry_TextChanged" VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand"/>
+
+                        <Picker x:Name="FilterDatePicker" Title="Дата" FontSize="Body" SelectedIndexChanged="Picker_SelectedIndexChanged" Grid.Column="1" Margin="0,0,0,8">
+                            <Picker.Items>
+                                <x:String>Стандарт</x:String>
+                                <x:String>По убыванию</x:String>
+                                <x:String>По возрастанию</x:String>
+                            </Picker.Items>
+                        </Picker>
+
+                        <Button Text="Сброс" FontSize="Default" Clicked="Button_Clicked" Grid.Column="2" HorizontalOptions="End" VerticalOptions="End"/>
+                    </Grid>
+                </Frame>
+
+                
+                
+                <Frame Grid.Row="1" Style="{StaticResource FrameStyle}" Padding="6">
+                    <ListView x:Name="ProductListView">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="90"/>
+                                            <ColumnDefinition Width="90"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer x:Name="OneTap" NumberOfTapsRequired="1" Tapped="OneTap_Tapped"/>
+                                            <TapGestureRecognizer x:Name="DoubleTap" NumberOfTapsRequired="2" Tapped="DoubleTap_Tapped"/>
+                                        </Grid.GestureRecognizers>
+
+                                        <Label Text="{Binding NameOfProduct}" Grid.Column="0" FontSize="Default"/>
+                                        <Label Text="{Binding DateOfIssue}" Grid.Column="1" HorizontalTextAlignment="Center"/>
+                                        <Label Text="{Binding ExpirationDate}" Grid.Column="2" HorizontalTextAlignment="Center"/>
+
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Frame>
+                
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

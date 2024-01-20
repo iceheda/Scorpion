@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Scorpion.Views.SectionViews.AddSection">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="Отменить" Text="Cancel" Clicked="Cancel_OnClicked" />
+        <ToolbarItem x:Name="Сохранить" Text="Save" Clicked="Save_OnClicked" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <Grid Margin="4,4,4,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Entry x:Name="nameEntry" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Placeholder="Название" Style="{StaticResource EntryStyle}" />
+            <Button Text="Сохранить" Clicked="Save_OnClicked" Grid.Row="1" Grid.Column="1" />
+            <Button Text="Отменить" Clicked="Cancel_OnClicked" Grid.Row="1" Grid.Column="0" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

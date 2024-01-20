@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Scorpion.Views.ProductViews.AddProductView">
+    <ContentPage.Content>
+        <Grid x:Name="grid1" Margin="3,3,3,0" BindingContext="{Binding .}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Frame Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"  Style="{DynamicResource FrameStyle}" Padding="2">
+                <Editor x:Name="EditorNameOfProduct" Text="{Binding NameOfProduct, Mode=TwoWay}" Placeholder="Введите название" />
+            </Frame>
+
+            <StackLayout Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Orientation="Horizontal" >
+                <Frame Style="{DynamicResource FrameStyle}" Padding="10">
+                    <StackLayout Orientation="Vertical">
+                        <Label Text="Дата изготовления" FontSize="Subtitle" HorizontalTextAlignment="Center"/>
+                        <DatePicker x:Name="DateOfIssueDatePicker" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </StackLayout>
+                </Frame>
+
+                <Frame Style="{DynamicResource FrameStyle}"  Padding="10">
+                    <StackLayout >
+                        <Label Text="Дата окончания срока годности" FontSize="Subtitle" HorizontalTextAlignment="Center" />
+                        <DatePicker x:Name="ExpirationDateDatePicker" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+
+            <Frame Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Style="{DynamicResource FrameStyle}" Padding="10">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition  Width="*"/>
+                        <ColumnDefinition  Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="Уведомить об окончании ср/г в днях:" Grid.Column="0" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+                    <Entry x:Name="EntryNotificationDay" Text="{Binding NotificationDay, Mode=TwoWay}" Keyboard="Numeric" Grid.Column="1" />
+
+                    <!--   <Picker x:Name="PickerOfNotificationDay" Grid.Column="1" SelectedIndex="0">
+                        <Picker.Items>
+                            <x:String>Не уведомлять</x:String>
+                            <x:String>За неделю</x:String>
+                            <x:String>За 2 недели</x:String>
+                            <x:String>За 3 недели</x:String>
+                            <x:String>За месяц</x:String>
+                            <x:String>За полтора месяца</x:String>
+                            <x:String>За 2 месяца</x:String>
+                            <x:String>За 3 месяца</x:String>
+                            <x:String>За 5 месяцев</x:String>
+                        </Picker.Items>
+                    </Picker> -->
+                </Grid>
+            </Frame>
+
+            <Frame  Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Style="{DynamicResource FrameStyle}" Padding="10">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Количество штук:" Grid.Column="0" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+                    <Entry x:Name="EntryCount" Text="{Binding Quantity, Mode=TwoWay}" Keyboard="Numeric" Grid.Column="1"/>
+                </Grid>
+            </Frame>
+
+
+            <Frame Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" Style="{DynamicResource FrameStyle}" Padding="10">
+                <StackLayout>
+                    <Label Text="Комментарий:" FontSize="Subtitle"/>
+                    <Editor x:Name="EditorComment" Text="{Binding Comment, Mode=TwoWay}" Placeholder="Комментарий не обязателен" FontSize="Subtitle" Margin="-3,0,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                </StackLayout>
+            </Frame>
+
+            <Grid Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Button x:Name="Add" Text="Сохранить" Clicked="Add_Clicked" HorizontalOptions="Center" Grid.Column="0" Grid.Row="0"/>
+                <Button x:Name="Cancel" Text="Отменить" Clicked="Cancel_Clicked"  HorizontalOptions="Center" Grid.Column="1" Grid.Row="0"/>
+            </Grid>
+
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

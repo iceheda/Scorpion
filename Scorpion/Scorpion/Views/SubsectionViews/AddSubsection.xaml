@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Scorpion.Views.SubsectionViews.AddSubsection">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="Resources/drawable/baseline_save_white_48.png" Clicked="Save_Clicked" >
+            
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Entry x:Name="nameEntry" Grid.Row="0" Placeholder="Название" />
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

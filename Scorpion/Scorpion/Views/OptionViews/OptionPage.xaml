@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Scorpion.Views.OptionViews.OptionPage"
+             Title="Настройки">
+
+    <ContentPage.Content>
+
+        <ScrollView>
+            <StackLayout>
+                <Frame Style="{StaticResource FrameStyle}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="45" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="45" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="0" Source="{AppThemeBinding Light='Resources/drawable/editImage', Dark='Resources/drawable/DarkeditImage'}" 
+                               VerticalOptions="Center"
+                               HorizontalOptions="Start" />
+                        <Label Grid.Column="1" Style="{StaticResource LabelStyle}" Text=" Режим редактирования"
+                               VerticalOptions="Center" HorizontalOptions="StartAndExpand" FontSize="Medium" />
+                        <Switch Grid.Column="2" x:Name="Sw1" VerticalOptions="Center" HorizontalOptions="Start"
+                                Toggled="EditSwitch_Toggled" />
+                    </Grid>
+                </Frame>
+
+            <!--    <Frame Style="{StaticResource FrameStyle}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="45" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="45" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="0" Source="{AppThemeBinding Light='Resources/drawable/themeImage', Dark='Resources/drawable/darkthemeImage'}" />
+                        <Label Grid.Column="1" Style="{StaticResource LabelStyle}" Text=" Тёмная тема"
+                               VerticalOptions="Center" HorizontalOptions="Start" FontSize="Medium" />
+                        <Switch Grid.Column="2" Margin="0,1,0,0" x:Name="ThemeSwitch" VerticalOptions="Center"
+                                HorizontalOptions="End" Toggled="ThemeSwitch_OnToggled" />
+                    </Grid>
+                </Frame> -->
+
+                 
+
+              
+
+                <Frame Style="{StaticResource FrameStyle}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="45" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="45" />
+                            <ColumnDefinition Width="250" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="0" Source="{AppThemeBinding Light='Resources/drawable/exportImage', Dark='Resources/drawable/DarkexportImage'}" VerticalOptions="Center"
+                               HorizontalOptions="Center" />
+                        <Button Grid.Column="1" Style="{StaticResource ButtonStyle}" HorizontalOptions="Start"
+                                Text="Экспорт базы данных" Clicked="Export_Clicked" />
+                    </Grid>
+                </Frame>
+
+                <Frame Style="{StaticResource FrameStyle}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="45" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="45" />
+                            <ColumnDefinition Width="250" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="0" Source="{AppThemeBinding Light='Resources/drawable/importImage', Dark='Resources/drawable/DarkimportImage'}" VerticalOptions="Center"
+                               HorizontalOptions="Center" />
+                        <Button Grid.Column="1" Style="{x:StaticResource ButtonStyle}" HorizontalOptions="Start"
+                                Text="Импорт базы данных" Clicked="Import_Clicked" />
+                    </Grid>
+                </Frame>
+
+                <Frame Style="{StaticResource FrameStyle}" IsVisible="False">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="45" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="45" />
+                            <ColumnDefinition Width="250" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="0" Source="{AppThemeBinding Light='Resources/drawable/refreshImage', Dark='Resources/drawable/DarkrefreshImage'}" VerticalOptions="Center"
+                               HorizontalOptions="Center" />
+                        <Button Grid.Column="1" Style="{StaticResource ButtonStyle}" HorizontalOptions="Start"
+                                Text="Обновить базу данных" Clicked="Refresh_Clicked" />
+                    </Grid>
+                </Frame>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

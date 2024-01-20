@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Scorpion.Views.PhotoViews.AddPhoto">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Отменить" Clicked="Cancel_OnClicked" />
+        <ToolbarItem Text="Сохранить" Clicked="Save_Clicked" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Label Text="Путь:" Grid.Row="0" Margin="4,3,0,0" x:Name="path" />
+                <Button Text="Выбрать изображение" Margin="4,0,4,0" Grid.Row="1" Clicked="Button_OnClicked"
+                        CornerRadius="50" />
+                <Image x:Name="Image1" Grid.Row="2" />
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
